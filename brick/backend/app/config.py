@@ -1,14 +1,11 @@
 import os
 from pathlib import Path
 
-if Path("/opt/render/project/src").exists():
+THIS_FILE = Path(__file__).resolve()
+BASE_DIR = THIS_FILE.parent.parent.parent
+if not BASE_DIR.exists():
     BASE_DIR = Path("/opt/render/project/src")
-else:
-    BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 DOCUMENTS_DIR = BASE_DIR / "documents"
-ASSETS_DIR = BASE_DIR / "assets"
-PROJECTS_DIR = BASE_DIR / "projects"
-
-for d in [DOCUMENTS_DIR, ASSETS_DIR, PROJECTS_DIR]:
-    d.mkdir(parents=True, exist_ok=True)
+ASSETS_DIR = BASE_DIR.parent / "assets"
+PROJECTS_DIR = BASE_DIR.parent / "projects"

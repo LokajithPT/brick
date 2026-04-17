@@ -6,11 +6,18 @@ from fastapi.responses import FileResponse
 from app.routers.api import router as api_router
 from app.routers.documents import router as documents_router
 from app.routers.projects import router as projects_router
-from app.config import BASE_DIR, ASSETS_DIR, DOCUMENTS_DIR
 
-BASE_DIR.mkdir(parents=True, exist_ok=True)
-(DOCUMENTS_DIR).mkdir(parents=True, exist_ok=True)
-(BASE_DIR / "projects").mkdir(parents=True, exist_ok=True)
+try:
+    from app.config import BASE_DIR, ASSETS_DIR, DOCUMENTS_DIR
+
+    BASE_DIR.mkdir(parents=True, exist_ok=True)
+    (DOCUMENTS_DIR).mkdir(parents=True, exist_ok=True)
+    (BASE_DIR / "projects").mkdir(parents=True, exist_ok=True)
+except Exception as e:
+    print(f"Config import failed: {e}")
+    BASE_DIR = Path(__file__).parent.parent.parent
+    DOCUMENTS_DIR = BASE_DIR / "documents"
+    ASSETS_DIR = BASE_DIR / "assets"
 
 app = FastAPI(title="BRICK API")
 app.include_router(api_router)

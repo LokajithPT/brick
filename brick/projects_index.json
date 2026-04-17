@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "927fa8e4": {
+      "id": "927fa8e4",
+      "name": "something",
+      "created_at": "2026-04-16T18:26:57.878016",
+      "documents": [
+        "6ccedee0fb732323_20260416182705",
+        "ab9f7fce85da64e6_20260416182750",
+        "6ccedee0fb732323_20260416182847"
+      ],
+      "status": "active"
+    }
+  }
+}

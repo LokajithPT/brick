@@ -1,6 +1,6 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api";
-const DOCS_API = `${API_BASE}/docs`;
-const PROJECTS_API = `${API_BASE}/projects`;
+const RENDER_API = "https://brick-api.onrender.com/api";
+const DOCS_API = `${RENDER_API}/docs`;
+const PROJECTS_API = `${RENDER_API}/projects`;
 
 export interface Source {
   page: number;
@@ -129,5 +129,5 @@ export async function deleteProject(projectId: string) {
 
 export function getImageUrl(imagePath: string): string {
   if (imagePath.startsWith("http")) return imagePath;
-  return `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}${imagePath}`;
+  return `https://brick-api.onrender.com${imagePath}`;
 }

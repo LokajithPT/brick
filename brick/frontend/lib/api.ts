@@ -1,4 +1,5 @@
 const RENDER_API = "https://brick-api.onrender.com/api";
+const API_BASE = RENDER_API;
 const DOCS_API = `${RENDER_API}/docs`;
 const PROJECTS_API = `${RENDER_API}/projects`;
 

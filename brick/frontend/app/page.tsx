@@ -206,11 +206,11 @@ export default function Home() {
 
           {documentIndex ? (
             <div className="space-y-6">
-              {Object.entries(documentIndex.sections).map(([section, pages]: [string, any[]]) => (
+              {Object.entries(documentIndex.sections).map(([section, pages]) => (
                 <div key={section} className="bg-gray-800 rounded-lg p-4">
                   <h3 className="text-lg font-semibold text-blue-400 mb-4">{section}</h3>
                   <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-                    {pages.map((p: any) => (
+                    {(pages as any[]).map((p) => (
                       <div
                         key={p.page}
                         onClick={() => setSelectedImage(getImageUrl(p.image))}

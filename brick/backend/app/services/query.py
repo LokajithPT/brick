@@ -4,7 +4,10 @@ import httpx
 from dotenv import load_dotenv
 from app.config import ASSETS_DIR
 
-load_dotenv()
+try:
+    load_dotenv()
+except Exception:
+    pass
 
 
 class QueryService:

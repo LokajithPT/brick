@@ -1,6 +1,10 @@
 import os
 import json
-import fitz
+
+try:
+    import pymupdf as fitz
+except ImportError:
+    import pymupdf as fitz
 
 
 def parse_pdf_to_index(

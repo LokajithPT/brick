@@ -1,11 +1,16 @@
 import os
+from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from app.routers.api import router as api_router
 from app.routers.documents import router as documents_router
 from app.routers.projects import router as projects_router
-from app.config import ASSETS_DIR, DOCUMENTS_DIR
+from app.config import BASE_DIR, ASSETS_DIR, DOCUMENTS_DIR
+
+BASE_DIR.mkdir(parents=True, exist_ok=True)
+(DOCUMENTS_DIR).mkdir(parents=True, exist_ok=True)
+(BASE_DIR / "projects").mkdir(parents=True, exist_ok=True)
 
 app = FastAPI(title="BRICK API")
 app.include_router(api_router)

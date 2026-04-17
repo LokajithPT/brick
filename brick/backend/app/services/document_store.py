@@ -90,4 +90,4 @@ class DocumentStore:
         return False
 
 
-DOCUMENT_STORE = DocumentStore("/home/skedaddle/code/brick/brick/documents")
+DOCUMENT_STORE = DocumentStore()

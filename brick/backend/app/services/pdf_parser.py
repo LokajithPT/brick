@@ -2,7 +2,7 @@ import os
 import json
 
 try:
-    import pymupdf as fitz
+    import fitz
 except ImportError:
     import pymupdf as fitz
 

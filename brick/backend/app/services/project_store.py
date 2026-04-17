@@ -85,4 +85,4 @@ class ProjectStore:
         return []
 
 
-PROJECT_STORE = ProjectStore("/home/skedaddle/code/brick/brick")
+PROJECT_STORE = ProjectStore()

@@ -12,10 +12,15 @@ app.include_router(api_router)
 app.include_router(documents_router)
 app.include_router(projects_router)
 
-origins = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
+origins_env = os.getenv("CORS_ORIGINS", "")
+origins = (
+    [o.strip() for o in origins_env.split(",") if o.strip()]
+    if origins_env
+    else ["http://localhost:3000"]
+)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[o.strip() for o in origins],
+    allow_origins=origins + ["*"] if "*" in origins else origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

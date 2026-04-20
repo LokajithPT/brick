@@ -33,3 +33,8 @@ Thumbs.db
 # Assets (generated locally)
 assets/
 documents/
+
+# PDFs (large, don't commit)
+*.pdf
+Marlette*.pdf
+*.PDF
